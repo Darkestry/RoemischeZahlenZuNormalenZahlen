@@ -1,4 +1,3 @@
-
 '''
 Aufgabe: Schreiben Sie ein Python-Programm, das eine beliebige römische Zahl in eine
          „gewöhnliche” Dezimalzahl umrechnet.
