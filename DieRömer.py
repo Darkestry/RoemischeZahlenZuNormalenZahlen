@@ -3,20 +3,20 @@ Aufgabe: Schreiben Sie ein Python-Programm, das eine beliebige römische Zahl in
          „gewöhnliche” Dezimalzahl umrechnet.
 '''
 
-roemische_zahlen = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000} #Erstelle ein Dictionary
-dezimal_zahlen = 0
+roemische_zahlen = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000} # Erstelle ein Dictionary, "übersetze" römische Zahlen in Dezimalzahlen
+dezimal_zahlen = 0 # Instanziiere eine Variable mit dem Namen "dezimal_zahlen"
 
 if __name__ == "__main__":
-    input_roemisch = input("Römische Zahl eingeben: ")
+    input_roemisch = input("Römische Zahl eingeben: ") # User Input wird in input_roemisch "gespeichert"
 
-vorherige_zahl = 0
-for char in input_roemisch:
-    if char in roemische_zahlen:
-        if roemische_zahlen[char] > vorherige_zahl:
-            dezimal_zahlen -= vorherige_zahl
-        else:
-            dezimal_zahlen += vorherige_zahl
-    vorherige_zahl = roemische_zahlen[char]
-dezimal_zahlen += vorherige_zahl
+vorherige_zahl = 0 # Instanziiere eine Variable mit dem Namen "vorherige_zahl"
+for char in input_roemisch: # In Python ist es möglich, über einen String zu iterieren... Iteriere mit einer for-Schleife
+    if char in roemische_zahlen: # Falls die vom User eingegebene[n] römische Zahl[en] im Dictionary aufgelistet sind...
+        if roemische_zahlen[char] > vorherige_zahl: # Wenn die nachfolgende Ziffer/Zahl größer ist als die vorherige Ziffer/Zahl...
+            dezimal_zahlen -= vorherige_zahl # Subtrahiere die vorherige Zahl von der nachfolgenden Zahl
+        else: # Wenn die nachfolgende Ziffer/Zahl kleiner oder gleich groß ist wie die vorherige Ziffer/Zahl...
+            dezimal_zahlen += vorherige_zahl # Addiere die vorherige Zahl mit der nachfolgenden Zahl
+    vorherige_zahl = roemische_zahlen[char] # Übersetze die vorherige römische Zahl in eine Dezimalzahl
+dezimal_zahlen += vorherige_zahl # Addiere die vorherige Zahl zur Dezimalzahl
 
-print("Als Dezimalzahl: " + str(dezimal_zahlen))
+print("Als Dezimalzahl: " + str(dezimal_zahlen)) # Ausgabe der Dezimalzahl
